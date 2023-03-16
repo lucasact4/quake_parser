@@ -108,18 +108,73 @@ class GameLogParser
     end
   end
   def create_games_file(games)
-    json_string = JSON.generate(games, {
-      only: ["game", "total_kills"],
-      include: {
-        players: {
-          only: ["name", "kills"]
+    # Cria o relátorio em formato JSON que retorna algo parecido a TASK 1
+    # Mas tem a mesma função da TASK 2 que imprime um relátorio
+    # (simplemente imprimindo o "hash" pois está em formato JSON, parecido com o formato HASH)
+    begin
+      json_string = JSON.generate(games, {
+        only: ["game", "total_kills"],
+        include: {
+          players: {
+            only: ["name", "kills"]
+          }
         }
-      }
-    })
-    
-    # Imprime em formato JSON os dados dos objetos dentro do array
-    json_string = JSON.generate(games.map(&:as_json))
-    puts JSON.pretty_generate(JSON.parse(json_string))
+      })
+      
+      # Imprime em formato JSON os dados dos objetos dentro do array
+      json_string = JSON.generate(games.map(&:as_json))
+      puts "="*60
+      puts JSON.pretty_generate(JSON.parse(json_string))
+      puts "="*60
+      
+    rescue => exception
+      puts "Não foi possível imprimir o json com os dados das partidas"
+    end
+    # Imprime um relatório personalizado de cada partida
+    begin
+      puts "="*60
+      games.each do |game|
+        puts "A partida de ID Nº#{game.id} teve um total de #{game.total_kills} mortes e um total de #{game.players.length} jogadores"
+      end
+      puts "="*60
+    rescue => exception
+      puts "Não foi possível emitir o relatório personalizado"
+    end
+    # Impreme um ranking geral de kills dos jogadores
+    begin
+      players_kills = Hash.new(0)
+      games.each do |game|
+        game.players.each do |player|
+          players_kills[player.name] += player.kills
+          # puts "Player: #{player.name} Kills: #{player.kills}"
+        end
+      end
+      # p players_kills
+  
+      # Classificar jogadores por número de kills
+      sorted_players = players_kills.sort_by { |name, kills| kills }.reverse
+      
+      # p sorted_players
+
+      # Adicionar ranking ao JSON
+      ranking = sorted_players.map { |name, kills| { name: name, kills: kills } }
+      # p ranking
+  
+      # Imprime o Ranking em formato JSON
+      # puts JSON.pretty_generate(ranking)
+
+      # Imprime o Ranking em formato NormalConsole
+      cont = 1
+      puts "="*60
+      sorted_players.each do |name, kills|
+        puts "#{cont}º Player: #{name} Kills: #{kills}"
+        cont += 1
+      end
+      puts "="*60
+    rescue => exception
+      puts "Não foi possível emitir o ranking de kills gerais"
+    end
+
   end
   def print_json
     process_file()
