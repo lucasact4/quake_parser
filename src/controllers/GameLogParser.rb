@@ -21,7 +21,7 @@ class GameLogParser
       log_file = File.join(File.dirname(log_file), "games.log")
         
       # Começa a leitura do arquivo linha por linha
-      File.foreach(log_file) do |line, last|
+      File.foreach(log_file) do |line|
         # Se a um novo jogo
         if line.include?("InitGame:")
           begin
