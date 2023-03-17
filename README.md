@@ -8,15 +8,15 @@ Sinatra 3.0.5 gem.<br>
 
 # Solução Proposta
 <b>Console:</b><br>
--Imprimir as informações em formato JSON como relatório no console.<br>
--Imprimir um relatório simplificado da partida.<br>
--Imprimir o Ranking geral de kills dos players.<br>
+- Imprimir as informações em formato JSON como relatório no console.<br>
+- Imprimir um relatório simplificado da partida.<br>
+- Imprimir o Ranking geral de kills dos players.<br>
 
 <b>Arquivo:</b><br>
--Criar um arquivo date.json com as informações extraídas do games.log.<br>
+- Criar um arquivo date.json com as informações extraídas do games.log.<br>
 
 <b>Site:</b><br>
--A construção de uma API(quake_parser/api) que busca pelos dados do (date.json) presentes localmente(quake_parser/src) e retorna as informações da partida de acordo com o seu ID.<br>
+- A construção de uma API(quake_parser/api) que busca pelos dados do (date.json) presentes localmente(quake_parser/src) e retorna as informações da partida de acordo com o seu ID.<br>
 
 # Rodando o desafio
 
