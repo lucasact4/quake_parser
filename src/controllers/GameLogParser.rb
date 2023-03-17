@@ -6,7 +6,7 @@ require 'json'
 class GameLogParser
 
   # Responsável por processar o arquivo de .log puro e transformá-lo em objetos Ruby
-  def process_file
+  def parser_file
     # Variáveis
     count_game = 0
     games = []
@@ -183,6 +183,6 @@ class GameLogParser
 
   end
   def print_json
-    process_file()
+    parser_file()
   end
 end
