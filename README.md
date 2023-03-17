@@ -8,7 +8,7 @@ Sinatra 3.0.5 gem.<br>
 
 # Solução Proposta
 <b>Console:</b><br>
-- Imprimir as informações em formato JSON como relatório no console.<br>
+- Imprimir as informações em formato JSON para relatório.<br>
 - Imprimir um relatório simplificado da partida.<br>
 - Imprimir o Ranking geral de kills dos players.<br>
 
@@ -21,7 +21,7 @@ Sinatra 3.0.5 gem.<br>
 # Rodando o desafio
 
 <b>Requerimentos:</b> Ruby 3.1.3 e Sinatra 3.0.5.<br>
-Caso o desafio não funcione em uma versão atualizada do Ruby, será necessário usar o gerenciador de versões do ruby(rbenv ou RVM)<br>
+Caso o desafio não funcione em uma versão atualizada do Ruby, será necessário usar o gerenciador de versões do ruby(rbenv ou RVM) para instalar a versão do Ruby 3.1.3 junto com o Sinatra 3.0.5<br>
 
 ## Instale o Sinatra
 Inicialmente instale o Ruby na sua máquina de acordo com o seu Sistema Operacional, para prosseguir.
@@ -30,7 +30,7 @@ quake_parser> gem install sinatra
 ```
 
 ## Verifique o local
-Verifique se no seu terminal o desafio está localizado na pasta certa antes de rodar para evitar possíveis erros.<br>
+Verifique se no seu terminal do console o desafio está localizado na pasta certa antes de rodar para evitar possíveis erros.<br>
 Exemplo:
 ```console
 B:\user\desktop\GitHub\quake_parser> cd src
@@ -40,9 +40,8 @@ B:\user\desktop\GitHub\quake_parser\src> cd view
 B:\user\desktop\GitHub\quake_parser> cd api
 ```
 
-Inicialmente 
 ## Rode o desafio
-<b>TASK 1 e 2 - Terminal</b>
+<b>TASK 1 e 2 - Console</b>
 ```console
 quake_parser\src\view> ruby main.rb
 ```
