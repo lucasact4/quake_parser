@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Object Data</title>
+  </head>
+  <body>
+    <h1>Object Data</h1>
+
+    <p>ID: <%= object['id'] %></p>
+    <p>Game: <%= object['game'] %></p>
+    <p>Total Kills: <%= object['total_kills'] %></p>
+
+    <h2>Players</h2>
+    <ul>
+      <% object['players'].each do |player| %>
+        <li>Player: <%= player['name'] %> | Kills: <%= player['kills'] %></li>
+      <% end %>
+    </ul>
+  </body>
+</html>

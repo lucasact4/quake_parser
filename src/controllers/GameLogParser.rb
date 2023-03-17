@@ -18,7 +18,7 @@ class GameLogParser
       # Obtém o caminho completo do arquivo da classe
       log_file = File.expand_path(__FILE__)
       # Obtém o caminho completo do arquivo que deseja ler
-      log_file = File.join(File.dirname(log_file), "games.log")
+      log_file = File.join(File.dirname(log_file), "./files/games.log")
         
       # Começa a leitura do arquivo linha por linha
       File.foreach(log_file) do |line|
@@ -126,6 +126,12 @@ class GameLogParser
       puts "="*60
       puts JSON.pretty_generate(JSON.parse(json_string))
       puts "="*60
+      # Cria um arquivo JSON com o array de objetos dos games em formato JSON
+      begin
+        File.write('src/controllers/files/data.json', JSON.pretty_generate(JSON.parse(json_string)))
+      rescue => exception
+        puts "Não foi possível criar o arquivo games.json"
+      end
       
     rescue => exception
       puts "Não foi possível imprimir o json com os dados das partidas"
