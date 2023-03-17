@@ -12,7 +12,7 @@ post '/data' do
   id = params[:id]
 
   # Leia o arquivo JSON
-  file = File.read('../src/controllers/files/data.json')
+  file = File.read('../src/files/data.json')
   data = JSON.parse(file)
 
   # Procure o objeto com o ID fornecido
